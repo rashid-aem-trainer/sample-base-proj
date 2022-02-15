@@ -1,0 +1,30 @@
+AEM as a cloud service
+After the AEM 6.5 version and its hot fixes, Adobe has moved to AEM as a cloud Service.
+
+Value added as a cloud service
+- Enhanced or improved service architecture so that you do not experience any downtime; for neither the content management, nor the content delivery capabilities.
+- Auto scaling of the infrastructure - scale up and down, depending on actual traffic or the needs, thus removing infrastructure considerations.
+- Upto date AEM Code base - AEM codebase, with automated updates up to several times a month strives to keep the most recent version.
+- Best Practices Enforcement - Content, code and configurations are constantly reviewed and vetted against best practices.
+
+Set up local AEM instance
+
+1. Pre-requiste
+	JDK 11
+	a. Download and install the latest Java SDK 11 from https://experience.adobe.com/#/downloads with your Adobe ID or from the shared folder
+	b. Verify Java 11 SDK is installed by running the command:
+		Windows:java -version
+		macOS / Linux: java --version
+	
+2. Installation of AEM
+	a. Download the latest AEM SDK from https://experience.adobe.com/#/downloads with your Adobe ID or from the shared folder.
+	b. Extract or Unzip the Quickstart Jar from the AEM SDK zip file.
+	c. Create the folder ~/aem-sdk/author.
+	d. Copy the Quickstart JAR file to ~/aem-sdk/author and rename it to aem-author-p4502.jar
+	e. You dont need license file at this location.
+	e. Start the local AEM Author Service by executing the following from the command line. This will start the local AEM instance in the port 4502.
+	   If prompted for username and password please provide admin/admin
+	   During this process, you can see a folder called crx-quickstart getting created under ~/aem-sdk/author parallel to your jar file.
+	   java -jar aem-author-p4502.jar -gui
+
+
