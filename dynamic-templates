@@ -1,0 +1,27 @@
+Dynamic Template Creation Procedure
+	Dynamic Template creation steps - page component [Developers] -> Template Type [Developers] -> Dynamic Template [Admin or Template Authors] -> Page [Content Authors]
+	Static Template creation steps - page component [Developers] -> Template [Developers] -> Page [Content Authors]
+-	Create a page component extending core component
+-	Create a folder structure under /conf by using configuration browser option for our project by checking editable templates option
+-	Copy the editable template type from /libs/settings/wcm/template-types folder to our folder and change the reference to our page component
+-	Create dynamic template in templates folder under our project using the newly created template-types
+-	Enable the template and allow the template by adding cq:allowedTemplates[] property under /content/pagenode/jcr:content for creation of pages	
+Structure Mode
+-	Component in the structure mode cannot be deleted in the resultant page
+-	In structure mode, we can lock and unlock the components. 
+-	If the component gets unlocked, the component is editable in the resultant page or initial content mode
+-	Unlocked components should not be locked once again
+-	The dialog values of the locked component get stored under structure node of the editable template
+-	The dialog values of the unlocked components get stored under the corresponding page.
+Initial Content
+-	 Defines how the resultant page will be there.
+-	Unlocked components can be given initial content. This content can be modified.
+-	Additional components added to the responsive grid in this mode can be deleted in the resultant page.
+-	Dialog values of the components authored in the initial content mode gets stored under initial node of the template.
+Layout Mode
+-	Helps to structure or layout the page in 12 grid formats
+Page Policy 
+-	Helps to define the client libraries for this template
+Component Policy 
+-	Helps to allow components to the responsive grid.
+-	Helps to author the design dialog values and it will be same across all the pages created using this template
