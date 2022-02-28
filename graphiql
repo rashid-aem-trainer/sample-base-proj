@@ -1,0 +1,40 @@
+GraphQL
+
+Content Fragments supports headless scenarios where External Applications in React, Angular render experiences using the content authored and managed in AEM.
+
+But the JSON exposed through Assets Api or content fragments  are 
+over-delivering content, meaning the application receives more than it needs or 
+Large number of requests for fetching one object at a time
+
+To solve the above challenge, AEM has given support for GraphQL which Supports querying the content content fragments belonging to a content fragment model thereby querying AEM for only the content it needs, and to receive using a single API call
+
+Local Set up of GraphQL
+
+Prerequisites:
+
+1. JDK 11.0 - Can be downloaded from Oracle Website
+2. AEMaaCS Recent SDK - Can be downloaded from Adobe Downloads
+3. GraphiQL Content Package - Can be downloaded from Adobe Downloads
+
+Install the Java JDK 11.0
+Start your AEM instance using the SDK
+Install the GraphiQL Content Package
+
+
+Steps :
+1. Create a folder structure for our project under /conf folder using the configuration browser in Tools option and enable Content Fragment Models and GraphQL Persistet Queries. For example lets create a folder called sampleproj.
+2. Go to Tools -> Assets -> Content Fragment Models and define a content fragment model. For our case, lets create author model which stores authorname, authordesc and books. Enable the new author content fragment model.
+3. Create content fragment using the above author content fragment model in DAM/Assets by creating the folder under /content/dam and enabling the model through the properties-> cloud service configuration
+4. Create GraphQL endpoint in Tools -> Assets -> GraphQL. GraphiQL Content Package is configured for global endpoint. So create graphQL endpoint selecting /conf/global GraplQL Schema Option
+5. You can check whether the graphQL is configured properly or not using the localhost:4502/content/_cq_graphql/global/endpoint.json. If you are receiving forbidden error, you need to modify certain configuration values as below
+	a. Go for /system/console/configMgr and search sitesgraphql and add extensions gql and json
+6. After that localhost:4502/content/_cq_graphql/global/endpoint.json will provide you response.
+7. You can access the GraphiQL Query Execution Console using the link localhost:4502/content/graphiql.html and execute your queries
+
+	query{
+		authorList{
+			items{
+				_path
+			}
+		}
+	}
